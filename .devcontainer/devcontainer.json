@@ -21,7 +21,8 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-azuretools.vscode-docker",
-		"cschleiden.vscode-github-actions",
+		/* nice idea, but wont work without login to github. and its annoying about it */
+		//"cschleiden.vscode-github-actions",
 		"yzhang.markdown-all-in-one"
 	],
 	
