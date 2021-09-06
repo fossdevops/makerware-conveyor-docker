@@ -48,6 +48,12 @@ RUN apt-key add dev@makerbot.com.gpg.key && \
     chown conveyor:conveyor /var/log/conveyor && \
     apt-get -y autoremove && apt-get -y clean && rm -rf /var/lib/apt/lists/*
 
+# Create empty files for logs for use in shared volumes
+RUN cd /var/log/conveyor && \
+    touch conveyor-svc.log conveyord.log && \
+    chown conveyor:conveyor conveyor-svc.log conveyord.log && \
+    chmod 644 conveyor-svc.log conveyord.log
+
 # Start conveyor service
 ENV LD_LIBRARY_PATH=/usr/lib/makerbot:/usr/lib
 ENTRYPOINT [ "/usr/bin/conveyor-svc", "--config", "/etc/conveyor.conf" ]
