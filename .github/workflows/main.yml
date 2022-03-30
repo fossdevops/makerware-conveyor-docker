@@ -65,7 +65,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Cache Docker layers
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
@@ -89,7 +89,7 @@ jobs:
       # cache the makerbot repo pgp key
       - name: Cache Makerbot Repo GPG key
         id: cache-makerbot-repo-gpg
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: |
             docker/dev@makerbot.com.gpg.key
@@ -115,7 +115,7 @@ jobs:
       # cache the makerbot repo pgp key
       - name: Cache fkrull-deadsnakes Repo GPG key
         id: cache-fkrull-deadsnakes-repo-gpg
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: |
             docker/fkrull_deadsnakes_ppa.gpg.key
